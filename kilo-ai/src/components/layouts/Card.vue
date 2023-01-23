@@ -2,10 +2,19 @@
 import Flexbox from "./Flexbox.vue";
 import { defineProps } from "vue";
 
-const props = defineProps(["contentPadding", "backgroundColor", "cardHeight"]);
+const props = defineProps([
+  "contentPadding",
+  "backgroundColor",
+  "cardHeight",
+  "cardWidth",
+]);
 </script>
 <template>
-  <flexbox class="card" flow="column" :style="{ height: props['cardHeight'] }">
+  <flexbox
+    class="card"
+    flow="column"
+    :style="{ height: props['cardHeight'], width: props['cardWidth'] }"
+  >
     <slot name="image-icon"></slot>
 
     <div

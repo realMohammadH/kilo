@@ -17,6 +17,9 @@
   --secondary-color: #0e0e24;
   --tertiary-color: #f6f8f9;
 }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;

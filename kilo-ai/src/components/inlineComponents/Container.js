@@ -5,7 +5,7 @@ const container = (props, { slots }) => {
     {
       class: "container",
       style: {
-        width: "1200px",
+        maxWidth: "1200px",
         height: "100%",
         margin: "0 auto",
         padding: props.containerPadding,
