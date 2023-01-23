@@ -3,11 +3,18 @@ import { defineProps } from "vue";
 const props = defineProps({
   flow: {
     required: false,
-    default: "row",
   },
   justifyContent: {
     required: false,
-    default: "space-between",
+  },
+  padding: {
+    type: String,
+  },
+  alignItems: {
+    type: String,
+  },
+  gap: {
+    type: String,
   },
 });
 </script>
@@ -15,7 +22,13 @@ const props = defineProps({
 <template>
   <div
     class="flex"
-    :style="{ flexDirection: props.flow, justifyContent: props.justifyContent }"
+    :style="{
+      flexDirection: props.flow,
+      justifyContent: props.justifyContent,
+      padding: props.padding,
+      alignItems: props.alignItems,
+      gap: props.gap,
+    }"
   >
     <slot></slot>
   </div>

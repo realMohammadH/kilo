@@ -8,6 +8,8 @@ const container = (props, { slots }) => {
         width: "1200px",
         height: "100%",
         margin: "0 auto",
+        padding: props.containerPadding,
+        background: props.containerBackGround,
       },
     },
     slots.default()

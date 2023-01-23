@@ -3,13 +3,18 @@ import { defineProps } from "vue";
 const props = defineProps({
   fontSize: {
     type: String,
-    default: "40px",
+  },
+  lineHeight: {
+    type: String,
   },
 });
 </script>
 
 <template>
-  <h2 class="sectionSubTitle" :style="{ fontSize: props.fontSize }">
+  <h2
+    class="sectionSubTitle"
+    :style="{ fontSize: props.fontSize, lineHeight: props.lineHeight }"
+  >
     <slot></slot>
   </h2>
 </template>
@@ -20,7 +25,7 @@ const props = defineProps({
   font-weight: bold;
   letter-spacing: -0.32px;
   margin-bottom: 14px;
-  line-height: 48px;
-  font-size: 40px;
+  line-height: 40px;
+  font-size: 32px;
 }
 </style>
