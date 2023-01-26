@@ -19,11 +19,14 @@
 }
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 #app {
@@ -31,12 +34,26 @@ body {
   margin: 0 auto;
 }
 
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
 :is(h2, p, span, figure) {
   margin: 0;
   padding: 0;
 }
 
-img {
+:is(img, svg) {
   width: 100%;
+  height: 100%;
   object-fit: cover;
+}
+
+:is(section, .container) {
+  position: relative;
 }

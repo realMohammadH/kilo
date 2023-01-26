@@ -1,5 +1,12 @@
+<script setup>
+import { defineProps } from "vue";
+const props = defineProps(["marginBottom"]);
+</script>
 <template>
-  <p class="sectionDescription">
+  <p
+    class="sectionDescription"
+    :style="{ marginBottom: props['marginBottom'] }"
+  >
     <slot></slot>
   </p>
 </template>

@@ -1,3 +1,4 @@
+"use strict";
 import { h } from "vue";
 const container = (props, { slots }) => {
   return h(
@@ -12,7 +13,7 @@ const container = (props, { slots }) => {
         background: props.containerBackGround,
       },
     },
-    slots.default()
+    slots
   );
 };
 

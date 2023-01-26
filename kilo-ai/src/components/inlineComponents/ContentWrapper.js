@@ -1,3 +1,4 @@
+"use strict";
 import { h } from "vue";
 const contentWrapper = (props, { slots }) => {
   return h(
@@ -7,11 +8,11 @@ const contentWrapper = (props, { slots }) => {
       style: {
         textAlign: props.contentAlign,
         width: "550px",
-        // margin: "0 auto",
         padding: props.contentPadding,
+        marginBottom: props.margin,
       },
     },
-    [slots.sectionTitle(), slots.sectionSubTitle(), slots.sectionDescription()]
+    slots
   );
 };
 
