@@ -8,10 +8,11 @@ import SectionSubTitle from "./components/section/SectionSubTitle.vue";
 import SectionDescription from "./components/section/SectionDescription.vue";
 import imageWrapper from "./components/inlineComponents/ImageWrapper.js";
 import Card from "./components/layouts/Card.vue";
-const sectionPadding = ref("0 0 80px 0");
+// const sectionPadding = ref("0 0 80px 0");
 // const contentSharingImages = ref([
 //   "./assets/images/"
 // ])
+const logo = ref("./assets/icons/logo.svg");
 
 const cardInfo = ref([
   {
@@ -37,7 +38,7 @@ const cardInfo = ref([
 const socialIcons = ref([
   {
     id: "1",
-    iconPath: `./assets/icons/instagram.svg`,
+    iconPath: "./assets/icons/instagram.svg",
   },
   {
     id: "2",
@@ -117,14 +118,16 @@ const cardSubTitle = (props, { slots }) => {
 };
 
 const icon = (props, { slots }) => {
+  const width = props.width ?? "24px";
+  const height = props.height ?? "24px";
   return h(
     "span",
     {
       class: ["icon", props.className],
       style: {
         display: "block",
-        width: "24px",
-        height: "24px",
+        width: width,
+        height: height,
       },
     },
     slots
@@ -237,6 +240,7 @@ const navList = (props, { slots }) => {
         height: props.height,
         width: props.width,
         gap: props.gap,
+        padding: props.padding,
       },
     },
     slots
@@ -304,41 +308,24 @@ const regularContainer = (props, { slots }) => {
   );
 };
 
-// const card = (props, { slots }) => {
-//   return h(
-//     "article",
-//     {
-//       class: "card",
-//       style: {
-//         height: props.cardHeight,
-//         width: props.cardWidth,
-//       },
-//     },
-//     slots
-//   );
-// };
-
-// const sectionTitle = () => {
-//   return h(
-//     "span",
-//     {
-//       class: "sectionTitle",
-//       style: {
-//         display: "block",
-//         color: "var(--primary-color)",
-//       },
-//     },
-//     slots.default()
-//   );
-// };
+function imageUrl(path) {
+  return new URL(path, import.meta.url).href;
+}
 </script>
 
 <template>
   <header>
     <container>
       <nav class="navbar">
-        <navList height="100%" width="100%">
-          <icon className="logo"></icon>
+        <navList height="100%" width="100%" padding="0 24px">
+          <icon width="84px" height="24px">
+            <object
+              type="image/svg+xml"
+              :data="imageUrl(logo)"
+              width="84px"
+              height="24px"
+            ></object>
+          </icon>
           <navItem>
             <navList gap="16px">
               <navItem></navItem>
@@ -604,11 +591,22 @@ const regularContainer = (props, { slots }) => {
   <footer>
     <container containerPadding="80px 0">
       <flexbox justify-content="space-between">
-        <myList>
+        <myList contentGap="20px">
+          <icon width="84px" height="24px">
+            <object
+              type="image/svg+xml"
+              :data="imageUrl(logo)"
+              width="84px"
+              height="24px"
+            ></object>
+          </icon>
           <icon v-for="icon in socialIcons">
-            <svg>
-              <use :href="icon.iconPath"></use>
-            </svg>
+            <object
+              type="image/svg+xml"
+              :data="imageUrl(icon.iconPath)"
+              width="24px"
+              height="24px"
+            ></object>
           </icon>
         </myList>
         <navList>
